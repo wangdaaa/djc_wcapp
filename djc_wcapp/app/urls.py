@@ -19,6 +19,8 @@ from app import views
 
 
 urlpatterns = [
+    re_path(r'^gamefile/(?P<gm_id>\d+)/enable$', views.EnableGameFileDBDeatailView.as_view()),  # 增删改查
+    re_path(r'^gamefile/(?P<gm_id>\d+)/disable$', views.DisableGameFileDBDeatailView.as_view()),  # 增删改查
     re_path(r'^gamefile/(?P<gm_id>\d+)$', views.GameFileDBDeatailView.as_view()),  # 增删改查
     re_path(r'^gamefile$',views.GameFileDBView.as_view()), #增删改查
 ]

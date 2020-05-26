@@ -88,8 +88,9 @@ DATABASES = {
         'PORT': '3306',         # 数据库使用的端口
     }
 }
-
-
+AppID='wx47027bf1450501c0'
+AppSecret="6daabb0152db7b601aad41c95a5705b0"
+MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
 
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
@@ -142,10 +143,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS=[MEDIA_ROOT
 
+]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-
+IMAGE_TYPE_LIST=('bmp','png','tif','gif','JPEG')
 
 CORS_ALLOW_METHODS = (
     'DELETE',
