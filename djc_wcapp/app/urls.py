@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path,re_path
 from app import views
 
@@ -23,4 +22,5 @@ urlpatterns = [
     re_path(r'^gamefile/(?P<gm_id>\d+)/disable$', views.DisableGameFileDBDeatailView.as_view()),  # 增删改查
     re_path(r'^gamefile/(?P<gm_id>\d+)$', views.GameFileDBDeatailView.as_view()),  # 增删改查
     re_path(r'^gamefile$',views.GameFileDBView.as_view()), #增删改查
+    re_path(r'^hello$',views.HelloView.as_view()), #增删改查
 ]

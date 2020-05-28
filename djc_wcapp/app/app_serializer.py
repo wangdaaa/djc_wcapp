@@ -1,9 +1,6 @@
-import os
-
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from  app.models import GameFileDB
-from djc_wcapp.settings import MEDIA_ROOT
 
 
 class GameFileDBSerializer(ModelSerializer):

@@ -1,5 +1,5 @@
-Django==2.2.3
-djangorestframework==3.10.1
-mysqlclient==1.4.4
-PyMySQL==0.9.3
-
+Django
+djangorestframework
+mysqlclient
+corsheaders
+uwsgi

@@ -25,7 +25,7 @@ SECRET_KEY = '6^$)v&$e3)55@ml)74-52pp6pboix$1w449pljx7)17l#o8^iq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,6 +85,7 @@ DATABASES = {
         'PASSWORD': '123.com',     # 正式密码/测试密码
         # 'HOST': '10.60.135.252',    # 正式主机
         'HOST': '127.0.0.1',    # 测试主机
+        # 'HOST': '47.114.36.77',    # 生产
         'PORT': '3306',         # 数据库使用的端口
     }
 }
@@ -92,17 +93,17 @@ AppID='wx47027bf1450501c0'
 AppSecret="6daabb0152db7b601aad41c95a5705b0"
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
 
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
-}
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    'rest_framework.authentication.SessionAuthentication',
-    'rest_framework.authentication.BasicAuthentication',
-    ),
-}
+# JWT_AUTH = {
+#     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+# }
+#
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#     'rest_framework.authentication.SessionAuthentication',
+#     'rest_framework.authentication.BasicAuthentication',
+#     ),
+# }
 
 
 

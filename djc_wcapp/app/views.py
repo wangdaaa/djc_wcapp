@@ -3,10 +3,8 @@ import os
 import traceback
 
 # Create your views here.
-from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework_jwt.settings import api_settings
 
 from app.app_serializer import GameFileDBSerializer, CreateGameFileDBSerializer
 from app.func_tools import create_new_name
@@ -25,7 +23,6 @@ class GameFileDBView(APIView):
         }
 
         res=GameFileDB.objects.filter(available=True)
-
         pp=GMPagination()
         pager_gms=pp.paginate_queryset(queryset=res,request=request,view=self)
         bs=GameFileDBSerializer(pager_gms,many=True)
@@ -196,45 +193,13 @@ class DisableGameFileDBDeatailView(APIView):
 
         return Response(data)
 
-#
-# from rest_framework_jwt.views import JSONWebTokenAPIView
-# from rest_framework_jwt.utils import jwt_response_payload_handler
-# from rest_framework_jwt.serializers import JSONWebTokenSerializer
-#
-# class XD_JSONWebTokenAPIView(JSONWebTokenAPIView):
-#     """
-#     Base API View that various JWT interactions inherit from.
-#    """
-#     def post(self, request, *args, **kwargs):
-#         serializer = self.get_serializer(data=request.data)
-#
-#         if serializer.is_valid():
-#             user = serializer.object.get('user') or request.user
-#             token = serializer.object.get('token')
-#             response_data = jwt_response_payload_handler(token, user, request)
-#             response_data['is_first']=user.is_default_pwd
-#             response = Response(response_data)
-#             print(response,'这是response===',response_data,user,type(user))
-#             if api_settings.JWT_AUTH_COOKIE:
-#                 print('是否进来了')
-#                 expiration = (datetime.datetime.utcnow() +
-#                               api_settings.JWT_EXPIRATION_DELTA)
-#                 response.set_cookie(api_settings.JWT_AUTH_COOKIE,
-#                                     token,
-#                                     expires=expiration,
-#                                     httponly=True)
-#             return response
-#
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-#
-#
-# class ObtainJSONWebToken(XD_JSONWebTokenAPIView):
-#     """
-#     API View that receives a POST with a user's username and password.
-#
-#     Returns a JSON Web Token that can be used for authenticated requests.
-#     """
-#     serializer_class = JSONWebTokenSerializer
-#
-#
-# xd_obtain_jwt_token = ObtainJSONWebToken.as_view()
+
+class HelloView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        data = {
+            "code": 0,
+            "msg": "",
+            "result": {"data": {}}
+        }
+        return Response(data)
