@@ -22,7 +22,7 @@ class GameFileDBView(APIView):
             "result": {"data": {}}
         }
 
-        res=GameFileDB.objects.filter(available=True)
+        res=GameFileDB.objects.all()
         pp=GMPagination()
         pager_gms=pp.paginate_queryset(queryset=res,request=request,view=self)
         bs=GameFileDBSerializer(pager_gms,many=True)
@@ -69,9 +69,8 @@ class GameFileDBDeatailView(APIView):
             "result": {"data": {}}
         }
         gm_id=kwargs.get("gm_id")
-        print('sssss')
         if gm_id:
-            res=GameFileDB.objects.filter(id=gm_id,available=True)
+            res=GameFileDB.objects.filter(id=gm_id,)
             if res:
                 res = GameFileDBSerializer(res, many=True)
                 res = res.data
