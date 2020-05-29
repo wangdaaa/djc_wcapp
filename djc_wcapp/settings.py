@@ -147,7 +147,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[MEDIA_ROOT
 
 ]
-STATIC_ROOT = 'static'
+STATIC_ROOT = 'static'#加这一条  在centos7使用uwsgi 启动项目后可以通过
+# 47.114.36.77:9001/static/a1c6c251c2e164d0c3ecedf1445e859e.png 这种形式启动
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True

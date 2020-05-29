@@ -22,7 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}, name='static'),
+    url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}, name='static'),#也要加上这一条服务端静态资源才能被访问
 
     path('api/v1/', include('app.urls')),
 ]
