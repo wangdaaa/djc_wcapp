@@ -147,6 +147,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[MEDIA_ROOT
 
 ]
+STATIC_ROOT = 'static'
+
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 IMAGE_TYPE_LIST=('bmp','png','tif','gif','JPEG')
