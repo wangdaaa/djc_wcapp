@@ -72,7 +72,7 @@ class GameFileDBDeatailView(APIView):
         if gm_id:
             res=GameFileDB.objects.filter(id=gm_id,)
             if res:
-                res = GameFileDBSerializer(res, many=True)
+                res = GameFileDBSerializer(res.first(), many=False)
                 res = res.data
                 data['result']['data'] = res
             else:
