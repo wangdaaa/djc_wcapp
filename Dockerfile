@@ -7,7 +7,7 @@ MAINTAINER oyealex
 ENV DJANGO_VER 2.0
 
 # 拷贝安装pip的脚本
-COPY get-pip.py /get-pip.py
+#COPY get-pip.py /get-pip.py
 
 # 设置alpine的镜像地址为阿里云的地址
 RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main/" > /etc/apk/repositories \
@@ -15,7 +15,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main/" > /etc/apk/repositories 
     && apk update \
     && apk add --no-cache bash \
     # 修改为从本地文件拷贝此脚本，不再需要curl工具
-    #    curl \
+    curl \
     python3 \
     # 由于通过apk安装的pip总是基于python2.7的版本，不符合项目要求，此处使用get-pip.py的方式
 #安装基于python3.6的pip
@@ -33,5 +33,8 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main/" > /etc/apk/repositories 
     && python3 -m pip uninstall -y pip setuptools wheel \
     && apk del curl
     # 最后清空apk安装时产生的无用文件
+     #    && apk del curl \
+    # 最后清空apk安装时产生的无用文件
+    && rm -rf /var/cache/apk/*
 CMD uwsgi --ini /root/djc_uwsgi.ini  #通过uwsgi的方式启动django项目
 
