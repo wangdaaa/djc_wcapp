@@ -21,16 +21,17 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main/" > /etc/apk/repositories 
 #安装基于python3.6的pip
     # 下载get-pip.py脚本
     # 从本地文件拷贝，不再下载
-    #    && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+    && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
     # 安装pip
     && python3 /get-pip.py \
     # 从阿里云的镜像安装特定版本的django
+    && pip install --default-timeout=100 -i https://pypi.tuna.tsinghua.edu.cn/simple -r /root/requirements.txt \
+
     # 删除不必要的脚本
     && rm -f /get-pip.py \
     # 此环境专用做运行django项目，因此移除不必要的工具，减少空间
     && python3 -m pip uninstall -y pip setuptools wheel \
-    && apk del curl \
-    && pip install --default-timeout=100 -i https://pypi.tuna.tsinghua.edu.cn/simple -r /root/requirements.txt
+    && apk del curl
     # 最后清空apk安装时产生的无用文件
 CMD uwsgi --ini /root/djc_uwsgi.ini  #通过uwsgi的方式启动django项目
 
