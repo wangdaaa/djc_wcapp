@@ -2,4 +2,5 @@ Django
 djangorestframework
 mysqlclient
 django-cors-headers
+pymysql
 uwsgi
