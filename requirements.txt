@@ -1,5 +1,5 @@
 Django
 djangorestframework
 mysqlclient
-corsheaders
+django-cors-headers
 uwsgi
