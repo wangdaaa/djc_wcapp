@@ -1,6 +1,6 @@
 Django
 djangorestframework
-mysqlclient
+mysqlclient==1.4.4
 django-cors-headers
 pymysql
 uwsgi
