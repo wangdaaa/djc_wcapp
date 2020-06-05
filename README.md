@@ -5,7 +5,7 @@ mkdir -p /data/test/static/media
 
 #创建镜像
 docker build -t djc:v10  -f /data/djc_wcapp/Dockerfile1 .
-#依靠容器创建镜像   绑定端口 绑定volume地
+#依靠容器创建镜像   绑定端口 绑定volume地ss
 docker run -itd -p9001:9001 --name djc_nb1  -v /data/test/static/media:/root/static/media   djc:v10
 
 
