@@ -76,7 +76,7 @@ class GameFileDBDeatailView(APIView):
             "result": {"data": {}}
         }
         gm_id=kwargs.get("gm_id")
-        if gm_id:
+        if gm_id and  gm_id.isdigit():
             res=GameFileDB.objects.filter(id=gm_id,)
             if res:
                 res = GameFileDBSerializer(res.first(), many=False)
@@ -99,7 +99,7 @@ class GameFileDBDeatailView(APIView):
             "result": {"data": {}}
         }
         gm_id=kwargs.get("gm_id")
-        if gm_id:
+        if gm_id and  gm_id.isdigit():
             pre_cs_obj=GameFileDB.objects.filter(id=gm_id)
             if pre_cs_obj:
                 post_data = request.data
@@ -126,7 +126,7 @@ class GameFileDBDeatailView(APIView):
             "result": {"data": {}}
         }
         gm_id=kwargs.get("gm_id")
-        if gm_id:
+        if gm_id and  gm_id.isdigit():
             pre_cs_obj=GameFileDB.objects.filter(id=gm_id)
             if pre_cs_obj:
 
@@ -161,7 +161,7 @@ class EnableGameFileDBDeatailView(APIView):
             "result": {"data": {}}
         }
         gm_id = kwargs.get("gm_id")
-        if gm_id:
+        if gm_id and  gm_id.isdigit():
             pre_cs_obj = GameFileDB.objects.filter(id=gm_id)
             if pre_cs_obj:
                 pre_cs_obj.update(available=True)
@@ -185,7 +185,7 @@ class DisableGameFileDBDeatailView(APIView):
             "result": {"data": {}}
         }
         gm_id = kwargs.get("gm_id")
-        if gm_id:
+        if gm_id and  gm_id.isdigit():
             pre_cs_obj = GameFileDB.objects.filter(id=gm_id)
             if pre_cs_obj:
                 pre_cs_obj.update(available=False)
