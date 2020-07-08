@@ -18,3 +18,14 @@ python3 manage.py runserver
 #如果能正常启动的话，再使用uwsgi启动项目
 # 使用uwsgi启动
 uwsgi --ini djc_uwsgi.ini
+
+
+#nginx服务器配置
+在 /etc/nginx 中创建文件夹 cert
+将https密钥文件放入此处
+[root@djc_nb cert]# ll
+-rw-r--r-- 1 root root 1679 Jul  7 18:16 4175468_www.daxingyouxijihe.com.key
+-rw-r--r-- 1 root root 3708 Jul  7 18:16 4175468_www.daxingyouxijihe.com.pem
+nginx配置文件设置好重启nginx服务
+cd /usr/sbin
+nginx -s reload
