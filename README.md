@@ -29,3 +29,14 @@ uwsgi --ini djc_uwsgi.ini
 nginx配置文件设置好重启nginx服务
 cd /usr/sbin
 nginx -s reload
+
+##使用脚本更新镜像并启动容器
+#### 1.启动dev分支
+```angular2
+sh build.sh
+```
+
+#### 2.启动review分支
+```angular2
+sh build_review.sh
+```
