@@ -151,7 +151,7 @@ STATIC_ROOT = 'static'#加这一条  在centos7使用uwsgi 启动项目后可以
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-IMAGE_TYPE_LIST=('bmp','png','tif','gif','JPEG')
+IMAGE_TYPE_LIST=('bmp','png','tif','gif','JPEG','jpg')
 
 CORS_ALLOW_METHODS = (
     'DELETE',

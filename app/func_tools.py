@@ -12,6 +12,7 @@ def create_new_name(name):
     """
     new_name=None
     name_list=name.split('.')
+    print(name_list,"name_list")
     if len(name_list)==2 and name_list[1] in IMAGE_TYPE_LIST:
         name=name_list[0]
         m.update((str(time.time())+name).encode('utf8'))
