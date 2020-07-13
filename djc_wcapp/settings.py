@@ -80,7 +80,8 @@ WSGI_APPLICATION = 'djc_wcapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',   # 数据库引擎
-        'NAME': 'djc_wxapp',         # 你要存储数据的库名，事先要创建之
+        # 'NAME': 'djc_wxapp',         # 你要存储数据的库名，事先要创建之
+        'NAME': 'djc_wxapp_review',         # review数据库
         'USER': 'root',         # 数据库用户名
         'PASSWORD': '123.com',     # 正式密码/测试密码
         # 'HOST': '127.0.0.1',    # 测试主机
