@@ -13,17 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,re_path
+from review import views
 
-from django.conf.urls import url
-from django.views import static
-from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}, name='static'),#也要加上这一条服务端静态资源才能被访问
-
-    path('api/v1/', include('app.urls')),
-    path('api/v2/', include('review.urls')),
+    re_path(r'^gamefile/(?P<gm_id>\w+)/enable$', views.EnableReviewGameFileDBDeatailView.as_view()),  # 增删改查
+    re_path(r'^gamefile/(?P<gm_id>\w+)/disable$', views.DisableReviewGameFileDBDeatailView.as_view()),  # 增删改查
+    re_path(r'^gamefile/(?P<gm_id>\w+)$', views.ReviewGameFileDBDeatailView.as_view()),  # 增删改查
+    # re_path(r'^gamefile$',views.ReviewGameFileDBView.as_view()), #增删改查
+    re_path(r'^gamefile$',views.ForReviewGameFileDBView.as_view()), #升级上线专用
+    re_path(r'^hello$',views.HelloView.as_view()), #增删改查
 ]
