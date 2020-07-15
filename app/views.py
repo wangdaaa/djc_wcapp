@@ -25,10 +25,10 @@ class GameFileDBView(APIView):
         query_dic={}
         if params:
             if "name" in params:
-                query_dic['name__contains']= params.get('name')
+                query_dic['name']= params.get('name')
                 params.get('name')
             if 'description' in params:
-                query_dic['description__contains'] = params.get('description')
+                query_dic['description'] = params.get('description')
         res=GameFileDB.objects.filter(**query_dic)
         pp=GMPagination()
         pager_gms=pp.paginate_queryset(queryset=res,request=request,view=self)
