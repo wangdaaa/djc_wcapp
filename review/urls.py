@@ -21,7 +21,7 @@ urlpatterns = [
     re_path(r'^gamefile/(?P<gm_id>\w+)/enable$', views.EnableReviewGameFileDBDeatailView.as_view()),  # 增删改查
     re_path(r'^gamefile/(?P<gm_id>\w+)/disable$', views.DisableReviewGameFileDBDeatailView.as_view()),  # 增删改查
     re_path(r'^gamefile/(?P<gm_id>\w+)$', views.ReviewGameFileDBDeatailView.as_view()),  # 增删改查
-    # re_path(r'^gamefile$',views.ReviewGameFileDBView.as_view()), #增删改查
-    re_path(r'^gamefile$',views.ForReviewGameFileDBView.as_view()), #升级上线专用
+    re_path(r'^gamefile$',views.ReviewGameFileDBView.as_view()), #增删改查
+    # re_path(r'^gamefile$',views.ForReviewGameFileDBView.as_view()), #升级上线专用
     re_path(r'^hello$',views.HelloView.as_view()), #增删改查
 ]

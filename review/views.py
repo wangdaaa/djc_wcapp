@@ -78,8 +78,8 @@ class ForReviewGameFileDBView(APIView):
                 {
                     "id": 1,
                     "image": "/static/5931b46470d0eff6d280f42096f72b73.png",
-                    "name": "离家",
-                    "description": "功能升级中，敬请期待",
+                    "name": "游戏一",
+                    "description": "",
                     "available": False,
                     "create_data": "2020-07-08T12:48:19.608456Z",
                     "update_data": "2020-07-14T06:49:12.923006Z"
