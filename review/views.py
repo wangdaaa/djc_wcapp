@@ -64,8 +64,14 @@ class ReviewGameFileDBView(APIView):
                 data['code'] = -1
                 data['msg'] = '上传的图片格式有误'
         else:
-            data['code'] = -1
-            data['msg'] = '请上传图片'
+            post_data = CreateReviewGameFileDBSerializer(data=request.data, many=False)
+            if post_data.is_valid():
+                res = post_data.save()
+                data['result']['data'] = res.name
+                data['msg'] = '创建成功'
+            else:
+                data['code'] = -1
+                data['msg'] = post_data.errors
 
         return Response(data)
 
