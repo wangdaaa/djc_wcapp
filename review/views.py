@@ -43,8 +43,10 @@ class ReviewGameFileDBView(APIView):
             "result": {"data": {}}
         }
         image = request.FILES.get("image")
+        print(request.data,'this is v2 request_data=============')
         if image:
             new_name=create_new_name(image.name)
+            print(new_name,"this is v2s name %s",new_name)
             if new_name:
                 with open(os.path.join(MEDIA_ROOT,new_name),'wb+') as e:
                     for line in image:
